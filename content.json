@@ -1,0 +1,127 @@
+{
+  "meta": {
+    "title": "Ground Truth",
+    "tag": "AI Field Guide · Pilot"
+  },
+
+  "dispatches": [
+    {
+      "id": "week1-prediction",
+      "weekNumber": 1,
+      "weekLabel": "Prediction, Not Cognition",
+      "status": "published",
+      "eyebrowTop": "Bearing 000° · What the model actually does",
+      "heroTitle": "The model doesn't know things. It predicts things.",
+      "heroLede": "Everything else in this course — where AI helps, where it lies to you confidently, and what your job becomes once it's in the room — follows from that one distinction.",
+      "heroMeta": "Three chapters · built from Week 1 lecture material · a pilot for this term's section",
+
+      "chapters": [
+        {
+          "id": "chapter-1",
+          "eyebrow": "Chapter I · What it actually does",
+          "title": "Prediction, not cognition.",
+          "paragraphs": [
+            "Ask a language model what 2+2 is, and it doesn't calculate. It predicts the token most likely to follow the ones before it — and in this case, that token is almost always \"4.\" Ask it something with no confident consensus in its training data, and it still predicts a next token. It just has less to go on.",
+            "This is the single fact the rest of the course sits on top of. The model has no internal model of truth. It has a very good model of what words tend to follow other words, trained on an enormous amount of human writing. Most of the time that's close enough to correct that the distinction doesn't matter. Sometimes it matters enormously.",
+            "Training carves the general pattern, months before you ever open a chat window. Inference — the moment you type a prompt — applies that frozen pattern live, to your exact input, with no lookup to check whether the output is true. There's no database check happening. There's a probability calculation, dressed in fluent English."
+          ],
+          "assignment": "Next time a model gives you a confident, specific answer — a stat, a citation, a number — ask yourself: is this something it was likely to have seen repeated many times in training, or something it's extrapolating? The two feel identical. They are not equally reliable."
+        },
+        {
+          "id": "chapter-2",
+          "eyebrow": "Chapter II · Where it breaks",
+          "title": "Confidence is not the same as truth.",
+          "paragraphs": [
+            "A hallucination isn't the model \"glitching.\" It's the model doing exactly what it always does — predicting a plausible next token — in a spot where plausible and true have come apart. The fabricated case citation, the invented statistic, the confidently wrong date: all produced by the same mechanism that gets the easy questions right.",
+            "This is why hallucination is so hard to eliminate and so easy to miss. The output isn't hedged, isn't flagged, isn't marked uncertain. It reads exactly like the correct answer, because fluency and accuracy are two different things the model doesn't distinguish between when it writes.",
+            "The failure mode scales with distance from dense training data. Ask about a landmark Supreme Court case: probably fine. Ask about a niche internal policy or an obscure primary source: the model will still answer fluently. That fluency is not evidence."
+          ],
+          "assignment": "Before you use an AI-generated number, quote, or citation in a memo or deck, name where it could be independently verified. If you can't name a source, that's your answer — verify before you ship it, don't reflexively caveat it."
+        },
+        {
+          "id": "chapter-3",
+          "eyebrow": "Chapter III · Your job in the loop",
+          "title": "You are the manager, not the operator.",
+          "paragraphs": [
+            "Prompting is not typing a question into a search box. It's delegation — the same skill as briefing an intern, except the intern has read everything and remembers nothing about your specific situation unless you tell it. A vague prompt gets a generic answer for the same reason a vague brief gets generic work: the model fills the gaps you left open with the most statistically common assumption, not your assumption.",
+            "This is also where agents differ from copilots, and the difference matters more every semester. A copilot drafts and waits for you. An agent takes an action — sends the email, books the meeting, edits the file — with less of you in the loop by default. The convenience is real. So is the fact that verification has to happen somewhere, and if you don't build the habit, nobody did.",
+            "The skill this course is actually teaching isn't \"how to use AI.\" It's how to stay the person accountable for the output while delegating the labor of producing it."
+          ],
+          "assignment": "Take one prompt you've used this week. Rewrite it as if you were briefing a smart, fast, context-blind new hire on their first day. What did you assume they already knew that you never actually told them?"
+        }
+      ],
+
+      "capstone": "None of this makes AI less useful. It makes it precisely as useful as your understanding of what it's actually doing — which is the whole course, one lecture at a time."
+    },
+    {
+      "id": "week2-context",
+      "weekNumber": 2,
+      "weekLabel": "Context Is Not Memory",
+      "status": "draft",
+      "eyebrowTop": "",
+      "heroTitle": "",
+      "heroLede": "",
+      "heroMeta": "",
+      "chapters": [],
+      "capstone": ""
+    }
+  ],
+
+  "map": {
+    "clusters": [
+      { "id": "machine", "name": "The Machine", "labelX": 180, "labelY": 55 },
+      { "id": "operator", "name": "The Operator", "labelX": 620, "labelY": 55 }
+    ],
+
+    "nodes": [
+      { "id": "tokens",      "cluster": "machine",  "x": 220, "y": 120, "r": 38,
+        "title": "Tokens & Prediction",
+        "text": "The model doesn't retrieve facts — it predicts the next most likely token, one at a time, based on patterns learned from its training data.",
+        "dispatchId": "week1-prediction", "chapterId": "chapter-1" },
+
+      { "id": "traintime",   "cluster": "machine",  "x": 180, "y": 240, "r": 34,
+        "title": "Training vs. Inference",
+        "text": "Training builds the general pattern from a fixed dataset, months before you ever open a chat window. Inference applies that frozen pattern live, to your exact prompt — with no way to check it against the world as it is today.",
+        "dispatchId": null, "chapterId": null },
+
+      { "id": "context",     "cluster": "machine",  "x": 260, "y": 360, "r": 34,
+        "title": "The Context Window",
+        "text": "Everything the model \"knows\" about your specific situation is only what's currently visible in the conversation. It has no persistent memory of you beyond what you've typed.",
+        "dispatchId": null, "chapterId": null },
+
+      { "id": "hallucinate", "cluster": "machine",  "x": 200, "y": 470, "r": 40,
+        "title": "Why It Hallucinates",
+        "text": "A hallucination is the same prediction mechanism operating where \"plausible\" and \"true\" have come apart — not a malfunction. A feature, working exactly as designed, in the wrong place.",
+        "dispatchId": "week1-prediction", "chapterId": "chapter-2" },
+
+      { "id": "prompting",   "cluster": "operator", "x": 680, "y": 120, "r": 38,
+        "title": "Prompting as Delegation",
+        "text": "A vague prompt gets filled in with the model's most statistically common assumption — not yours. Prompting well means briefing, not just asking.",
+        "dispatchId": "week1-prediction", "chapterId": "chapter-3" },
+
+      { "id": "agents",      "cluster": "operator", "x": 720, "y": 240, "r": 34,
+        "title": "Agents vs. Copilots",
+        "text": "A copilot drafts and waits. An agent acts — sends, books, edits — with less of you in the loop by default. Convenience goes up; so does the cost of skipping verification.",
+        "dispatchId": null, "chapterId": null },
+
+      { "id": "verify",      "cluster": "operator", "x": 640, "y": 360, "r": 36,
+        "title": "The Verification Habit",
+        "text": "Fluency and accuracy are not the same signal, and the model gives you no reliable cue for which one you're getting. The habit of checking has to come from you, every time.",
+        "dispatchId": null, "chapterId": null },
+
+      { "id": "workflow",    "cluster": "operator", "x": 700, "y": 470, "r": 34,
+        "title": "Where AI Fits Your Workflow",
+        "text": "The highest-leverage use isn't replacing your judgment — it's compressing the distance between a rough idea and a first draft you can then judge.",
+        "dispatchId": null, "chapterId": null }
+    ],
+
+    "edges": [
+      { "from": "tokens",      "to": "hallucinate", "cross": false },
+      { "from": "traintime",   "to": "context",     "cross": false },
+      { "from": "prompting",   "to": "verify",      "cross": false },
+      { "from": "agents",      "to": "workflow",    "cross": false },
+      { "from": "hallucinate", "to": "verify",      "cross": true  },
+      { "from": "context",     "to": "prompting",   "cross": true  }
+    ]
+  }
+}

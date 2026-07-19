@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ground Truth — AI Field Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand">
+    <span class="mark">Ground Truth</span>
+    <span class="tag">AI Field Guide · Pilot</span>
+  </div>
+  <div class="dial">
+    <button id="btn-dispatch" class="active" onclick="setView('dispatch')">Dispatch</button>
+    <button id="btn-map" onclick="setView('map')">Map</button>
+  </div>
+</div>
+
+<div id="week-picker" class="week-picker"></div>
+
+<div id="view-dispatch" class="view">
+  <div class="load-state">Loading…</div>
+</div>
+
+<div id="view-map" class="view hidden">
+  <div class="mapview">
+    <div class="map-head">
+      <div class="eyebrow">Full field · non-linear</div>
+      <h1>Eight ideas, two clusters, one course.</h1>
+      <p>The Machine covers what's happening under the hood. The Operator covers what that means for how you work. Click any node — dotted lines cross between clusters where a mechanical fact directly shapes a working habit.</p>
+    </div>
+    <div class="map-stage">
+      <svg id="graph" viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg"></svg>
+    </div>
+    <div class="detail-panel" id="detail-panel">
+      <p class="placeholder">Click a node above to read it here.</p>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
