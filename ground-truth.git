@@ -1,0 +1,7 @@
+cd ground-truth
+git init
+git add index.html styles.css app.js content.json README.md
+git commit -m "Initial site: Week 1 dispatch + map"
+git branch -M main
+git remote add origin https://github.com/dijotalexander/ground-truth.git
+git push -u origin main
